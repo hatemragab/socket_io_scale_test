@@ -1,6 +1,6 @@
 # my-scenario.yml
 config:
-  target: "http://localhost:3000"
+  target: "https://dev.chat.weellu.com"
   phases:
     - duration: 1000
       arrivalRate: 2000

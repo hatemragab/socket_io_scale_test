@@ -11,10 +11,10 @@ export default class ChatServer {
     private async listen(httpServer) {
         global.io = new Server(httpServer, {
             //    maxHttpBufferSize: 100000000,
-            //  connectTimeout: 5000,
+            connectTimeout: 5000,
             transports: ['websocket'],
-            // pingInterval: 15 * 1000,
-            // pingTimeout: 5000,
+            pingInterval: 20 * 1000,
+            pingTimeout: 5000,
             allowEIO3: true,
             allowRequest: (req, callback) => {
                 callback(null, true);
