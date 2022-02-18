@@ -1,0 +1,15 @@
+# my-scenario.yml
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 1000
+      arrivalRate: 2000
+  socketio:
+    transports: [ "websocket" ]
+  engines:
+    socketio-v3: {}
+
+scenarios:
+  - engine: "socketio"
+    flow:
+      - think: 160000 # do nothing for 10m and disconnect

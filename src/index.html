@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+<body>
+<input type="submit" id="su">
+<div id="p1">connect now is</div>
+<ul >
+    <li id="lll">
+        h1
+    </li>
+</ul>
+
+<script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
+<script>
+    let ul = document.querySelector("ul")
+    let p = document.getElementById("p1")
+    let bt = document.getElementById("su")
+    const socket = io('http://127.0.0.1:3000', {
+        transports: ['websocket']
+    });
+    socket.on('connect', (s) => {
+        console.log("connectconnectconnectconnectconnectconnect");
+    })
+    socket.on('room:event', (s) => {
+        let li = document.createElement("li");
+        li.appendChild(document.createTextNode(s.toString()));
+        ul.appendChild(li)
+    })
+
+    socket.on('room:count', (s) => {
+        p.innerText = "connect now is "+s
+        console.log(s)
+    })
+
+    bt.addEventListener('click', () => {
+        document.getElementById("lll").innerText = "Hello World";
+        socket.emit('send:all', "send:allsend:allsend:allsend:all")
+    })
+</script>
+</body>
+
+</html>
