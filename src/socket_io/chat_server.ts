@@ -13,7 +13,7 @@ export default class ChatServer {
             //    maxHttpBufferSize: 100000000,
             connectTimeout: 5000,
             transports: ['websocket'],
-            pingInterval: 20 * 1000,
+            pingInterval: 280 * 1000,
             pingTimeout: 5000,
             allowEIO3: true,
             allowRequest: (req, callback) => {
